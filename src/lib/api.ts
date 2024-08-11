@@ -65,7 +65,14 @@ export const getArtists = async (): Promise<Artist[]> => {
   const albums = await getAlbums();
   const artistIds = Array.from(new Set(albums.map((album) => album.userId)));
   const artists = await Promise.all(artistIds.map((id) => getUser(id)));
-  return artists.map((user) => ({ id: user.id, name: user.name }));
+  return artists.map((user) => ({
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    phone: user.phone,
+    website: user.website,
+    company: user.company
+  }));
 };
 
 export const getArtist = async (artistId: number): Promise<Artist> => {
