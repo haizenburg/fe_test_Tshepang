@@ -1,8 +1,10 @@
-import { getAlbumsByUser, getUser, getAlbum } from "../../../lib/api";
+import React from "react";
+import { Music } from "lucide-react";
+import { getAlbumsByUser, getUser, getAlbum, Album } from "../../../lib/api";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-const AlbumCard = ({ album }) => (
+const AlbumCard = ({ album }: { album: Album }) => (
   <Link href={`/albums/${album.id}`} className="group">
     <div className="relative overflow-hidden rounded-md aspect-square mb-2">
       <img
@@ -53,6 +55,11 @@ export default async function AlbumDetailPage({
               {user.name}
             </Link>
             <p className="mt-4 text-gray-600">10 songs • 45 minutes</p>
+
+            <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors duration-300 flex items-center mt-4">
+              <Music className="mr-2" size={20} />
+              Play
+            </button>
           </div>
         </div>
         <div className="mb-8">

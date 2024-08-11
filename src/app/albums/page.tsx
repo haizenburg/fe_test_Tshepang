@@ -1,7 +1,7 @@
-import { getAlbums } from "../../lib/api";
+import { Album, getAlbums } from "../../lib/api";
 import Link from "next/link";
 
-const AlbumCard = ({ album }) => (
+const AlbumCard = ({ album }: { album: Album }) => (
   <Link href={`/albums/${album.id}`} className="group">
     <div className="relative overflow-hidden rounded-md aspect-square mb-2">
       <img
@@ -20,11 +20,11 @@ const AlbumCard = ({ album }) => (
   </Link>
 );
 
-const AlbumRow = ({ title, albums }) => (
+const AlbumRow = ({ title, albums }: { title: string; albums: Album[] }) => (
   <div className="mb-8">
     <h2 className="text-2xl font-bold mb-4">{title}</h2>
     <div className="flex overflow-x-auto pb-4 -mx-4 px-4 space-x-4">
-      {albums.map((album) => (
+      {albums.map((album: Album) => (
         <div key={album.id} className="w-40 flex-shrink-0">
           <AlbumCard album={album} />
         </div>
