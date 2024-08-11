@@ -24,6 +24,14 @@ export interface User {
 export interface Artist {
   id: number;
   name: string;
+  email: string;
+  phone: string;
+  website: string;
+  company: {
+    name: string;
+    catchPhrase: string;
+    bs: string;
+  };
 }
 
 export const getAlbums = async (): Promise<Album[]> => {
@@ -62,5 +70,12 @@ export const getArtists = async (): Promise<Artist[]> => {
 
 export const getArtist = async (artistId: number): Promise<Artist> => {
   const user = await getUser(artistId);
-  return { id: user.id, name: user.name };
+  return {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    phone: user.phone,
+    website: user.website,
+    company: user.company
+  };
 };

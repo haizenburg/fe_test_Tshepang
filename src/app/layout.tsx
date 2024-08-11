@@ -5,7 +5,7 @@ import Sidebar from "@/components/Sidebar";
 import Header from "../components/Header";
 
 export const metadata: Metadata = {
-  title: "Lunkgem",
+  title: "Musicaly",
   description: "Discover and enjoy music"
 };
 
